@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		956AC147280ACAA20016D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC146280ACAA20016D766 /* AppDelegate.swift */; };
-		956AC14B280ACAA20016D766 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC14A280ACAA20016D766 /* ViewController.swift */; };
 		956AC150280ACAA40016D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956AC14F280ACAA40016D766 /* Assets.xcassets */; };
 		956AC153280ACAA40016D766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AC151280ACAA40016D766 /* LaunchScreen.storyboard */; };
 		956AC15D280ACCFB0016D766 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC15C280ACCFB0016D766 /* AuthViewController.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		956AC143280ACAA20016D766 /* Itunes music search with login screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itunes music search with login screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AC146280ACAA20016D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		956AC14A280ACAA20016D766 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		956AC14F280ACAA40016D766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956AC152280ACAA40016D766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956AC154280ACAA40016D766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				956AC146280ACAA20016D766 /* AppDelegate.swift */,
-				956AC14A280ACAA20016D766 /* ViewController.swift */,
 				956AC14F280ACAA40016D766 /* Assets.xcassets */,
 				956AC151280ACAA40016D766 /* LaunchScreen.storyboard */,
 				956AC154280ACAA40016D766 /* Info.plist */,
@@ -181,7 +178,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956AC14B280ACAA20016D766 /* ViewController.swift in Sources */,
 				956AC165280ACDB90016D766 /* UserInfoViewController.swift in Sources */,
 				956AC163280ACD850016D766 /* DetailAlbumViewController.swift in Sources */,
 				956AC15D280ACCFB0016D766 /* AuthViewController.swift in Sources */,
