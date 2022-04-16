@@ -194,7 +194,7 @@ extension SingUpViewController: UITextFieldDelegate {
 
 extension SingUpViewController {
     
-     private func setConstraints() {
+    private func setConstraints() {
         
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),

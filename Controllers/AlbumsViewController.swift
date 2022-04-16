@@ -60,7 +60,7 @@ class AlbumsViewController: UIViewController {
     }
     
 }
-    
+
 extension AlbumsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
