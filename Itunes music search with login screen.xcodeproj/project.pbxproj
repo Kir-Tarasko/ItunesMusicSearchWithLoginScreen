@@ -10,6 +10,7 @@
 		954BB23B280B0D930060BC7B /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB23A280B0D930060BC7B /* UIViewController + Extension.swift */; };
 		954BB23D280B147D0060BC7B /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB23C280B147D0060BC7B /* AlbumsTableViewCell.swift */; };
 		954BB23F280B1B700060BC7B /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB23E280B1B700060BC7B /* UserInfoViewController.swift */; };
+		954BB241280B1C2F0060BC7B /* SongsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB240280B1C2F0060BC7B /* SongsCollectionViewCell.swift */; };
 		956AC147280ACAA20016D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC146280ACAA20016D766 /* AppDelegate.swift */; };
 		956AC150280ACAA40016D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956AC14F280ACAA40016D766 /* Assets.xcassets */; };
 		956AC153280ACAA40016D766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AC151280ACAA40016D766 /* LaunchScreen.storyboard */; };
@@ -24,6 +25,7 @@
 		954BB23A280B0D930060BC7B /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		954BB23C280B147D0060BC7B /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
 		954BB23E280B1B700060BC7B /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		954BB240280B1C2F0060BC7B /* SongsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsCollectionViewCell.swift; sourceTree = "<group>"; };
 		956AC143280ACAA20016D766 /* Itunes music search with login screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itunes music search with login screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AC146280ACAA20016D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956AC14F280ACAA40016D766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				954BB23C280B147D0060BC7B /* AlbumsTableViewCell.swift */,
+				954BB240280B1C2F0060BC7B /* SongsCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				956AC163280ACD850016D766 /* DetailAlbumViewController.swift in Sources */,
 				954BB23B280B0D930060BC7B /* UIViewController + Extension.swift in Sources */,
 				956AC15D280ACCFB0016D766 /* AuthViewController.swift in Sources */,
+				954BB241280B1C2F0060BC7B /* SongsCollectionViewCell.swift in Sources */,
 				956AC15F280ACD2C0016D766 /* SignUpViewController.swift in Sources */,
 				954BB23F280B1B700060BC7B /* UserInfoViewController.swift in Sources */,
 				954BB23D280B147D0060BC7B /* AlbumsTableViewCell.swift in Sources */,
