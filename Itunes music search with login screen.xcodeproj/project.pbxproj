@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		954BB23B280B0D930060BC7B /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB23A280B0D930060BC7B /* UIViewController + Extension.swift */; };
+		954BB23D280B147D0060BC7B /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB23C280B147D0060BC7B /* AlbumsTableViewCell.swift */; };
+		954BB23F280B1B700060BC7B /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954BB23E280B1B700060BC7B /* UserInfoViewController.swift */; };
 		956AC147280ACAA20016D766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC146280ACAA20016D766 /* AppDelegate.swift */; };
 		956AC150280ACAA40016D766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956AC14F280ACAA40016D766 /* Assets.xcassets */; };
 		956AC153280ACAA40016D766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AC151280ACAA40016D766 /* LaunchScreen.storyboard */; };
@@ -14,11 +17,13 @@
 		956AC15F280ACD2C0016D766 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC15E280ACD2C0016D766 /* SignUpViewController.swift */; };
 		956AC161280ACD570016D766 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC160280ACD570016D766 /* AlbumsViewController.swift */; };
 		956AC163280ACD850016D766 /* DetailAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC162280ACD850016D766 /* DetailAlbumViewController.swift */; };
-		956AC165280ACDB90016D766 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC164280ACDB90016D766 /* UserInfoViewController.swift */; };
 		956AC169280ADC0F0016D766 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AC168280ADC0F0016D766 /* UIStackView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		954BB23A280B0D930060BC7B /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		954BB23C280B147D0060BC7B /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
+		954BB23E280B1B700060BC7B /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		956AC143280ACAA20016D766 /* Itunes music search with login screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Itunes music search with login screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AC146280ACAA20016D766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956AC14F280ACAA40016D766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,7 +33,6 @@
 		956AC15E280ACD2C0016D766 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		956AC160280ACD570016D766 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		956AC162280ACD850016D766 /* DetailAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlbumViewController.swift; sourceTree = "<group>"; };
-		956AC164280ACDB90016D766 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		956AC168280ADC0F0016D766 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				956AC15B280ACCCF0016D766 /* Cells */,
+				956AC15C280ACCFB0016D766 /* AuthViewController.swift */,
+				956AC15E280ACD2C0016D766 /* SignUpViewController.swift */,
+				956AC160280ACD570016D766 /* AlbumsViewController.swift */,
+				956AC162280ACD850016D766 /* DetailAlbumViewController.swift */,
+				954BB23E280B1B700060BC7B /* UserInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -83,11 +92,7 @@
 		956AC15B280ACCCF0016D766 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				956AC15C280ACCFB0016D766 /* AuthViewController.swift */,
-				956AC15E280ACD2C0016D766 /* SignUpViewController.swift */,
-				956AC160280ACD570016D766 /* AlbumsViewController.swift */,
-				956AC162280ACD850016D766 /* DetailAlbumViewController.swift */,
-				956AC164280ACDB90016D766 /* UserInfoViewController.swift */,
+				954BB23C280B147D0060BC7B /* AlbumsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				956AC168280ADC0F0016D766 /* UIStackView + Extension.swift */,
+				954BB23A280B0D930060BC7B /* UIViewController + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -178,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956AC165280ACDB90016D766 /* UserInfoViewController.swift in Sources */,
 				956AC163280ACD850016D766 /* DetailAlbumViewController.swift in Sources */,
+				954BB23B280B0D930060BC7B /* UIViewController + Extension.swift in Sources */,
 				956AC15D280ACCFB0016D766 /* AuthViewController.swift in Sources */,
 				956AC15F280ACD2C0016D766 /* SignUpViewController.swift in Sources */,
+				954BB23F280B1B700060BC7B /* UserInfoViewController.swift in Sources */,
+				954BB23D280B147D0060BC7B /* AlbumsTableViewCell.swift in Sources */,
 				956AC147280ACAA20016D766 /* AppDelegate.swift in Sources */,
 				956AC161280ACD570016D766 /* AlbumsViewController.swift in Sources */,
 				956AC169280ADC0F0016D766 /* UIStackView + Extension.swift in Sources */,
