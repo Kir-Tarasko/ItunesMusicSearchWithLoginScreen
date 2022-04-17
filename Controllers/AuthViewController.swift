@@ -118,7 +118,7 @@ class AuthViewController: UIViewController {
         let mail = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let user = findUserDataBase(mail: mail)
-        
+
         if user == nil {
             loginLabel.text = "User not found"
             loginLabel.textColor = .red
@@ -126,7 +126,7 @@ class AuthViewController: UIViewController {
             let navVC = UINavigationController(rootViewController: AlbumsViewController.self())
             navVC.modalPresentationStyle = .fullScreen
             self.present(navVC, animated: true)
-            
+
             guard let activeUser = user else { return }
             DataBase.shared.saveActiveUser(user: activeUser)
         } else {

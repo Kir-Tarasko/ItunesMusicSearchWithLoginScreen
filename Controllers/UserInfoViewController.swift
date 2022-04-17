@@ -58,6 +58,7 @@ class UserInfoViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        setModel()
     }
     
     private func setupViews() {
