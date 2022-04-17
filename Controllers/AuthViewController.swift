@@ -40,29 +40,32 @@ class AuthViewController: UIViewController {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Enter your password"
+        textField.isSecureTextEntry = true
         return textField
     }()
     
     private let singUpButton: UIButton = {
-        let signUpButton = UIButton(type: .system)
-        signUpButton.backgroundColor = .blue
-        signUpButton.setTitle("Sign Up", for: .normal)
-        signUpButton.tintColor = .white
-        signUpButton.layer.cornerRadius = 10
-        signUpButton.addTarget(AuthViewController.self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        return signUpButton
+        let button = UIButton(type: .system)
+        button.backgroundColor = .blue
+        button.setTitle("Sign Up", for: .normal)
+        button.tintColor = .white
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        
+        // (AuthViewController.self, action: #selector(signUPButtonTapped), for: .touchUpInside)
     }()
     
     private let singInButton: UIButton = {
-        let signInButton = UIButton(type: .system)
-        signInButton.backgroundColor = .black
-        signInButton.setTitle("Sign In", for: .normal)
-        signInButton.tintColor = .white
-        signInButton.layer.cornerRadius = 10
-        signInButton.addTarget(AuthViewController.self, action: #selector(signInButtonTapped), for: .touchUpInside)
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
-        return signInButton
+        let button = UIButton(type: .system)
+        button.backgroundColor = .black
+        button.setTitle("Sign In", for: .normal)
+        button.tintColor = .white
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     private var textFieldsStackView = UIStackView()
@@ -102,14 +105,47 @@ class AuthViewController: UIViewController {
     }
     
     @objc private func signUpButtonTapped() {
-        let signUpViewController = SingUpViewController()
+        let signUpViewController = SignUpViewController ()
         self.present(signUpViewController, animated: true)
+        print("tapped button")
     }
     
+    
+    
     @objc private func signInButtonTapped() {
-        let navVC = UINavigationController(rootViewController: AlbumsViewController())
-        navVC.modalPresentationStyle = .fullScreen
-        self.present(navVC, animated: true)
+
+        
+        let mail = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let user = findUserDataBase(mail: mail)
+        
+        if user == nil {
+            loginLabel.text = "User not found"
+            loginLabel.textColor = .red
+        } else if user?.password == password {
+            let navVC = UINavigationController(rootViewController: AlbumsViewController.self())
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: true)
+            
+            guard let activeUser = user else { return }
+            DataBase.shared.saveActiveUser(user: activeUser)
+        } else {
+            loginLabel.text = "Wrong password"
+            loginLabel.textColor = .red
+        }
+    }
+    
+    private func findUserDataBase(mail: String) -> User? {
+        
+        let dataBase = DataBase.shared.users
+        print(dataBase)
+        
+        for user in dataBase {
+            if user.email == mail {
+                return user
+            }
+        }
+        return nil
     }
 }
 
@@ -183,7 +219,7 @@ extension AuthViewController {
         
         NSLayoutConstraint.activate([
             loginLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            loginLabel.bottomAnchor.constraint(equalTo: backgroundView.topAnchor, constant: -30)
+            loginLabel.bottomAnchor.constraint(equalTo: textFieldsStackView.topAnchor, constant: -30)
         ])
         
         NSLayoutConstraint.activate([

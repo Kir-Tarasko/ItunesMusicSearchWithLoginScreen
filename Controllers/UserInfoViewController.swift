@@ -68,6 +68,21 @@ class UserInfoViewController: UIViewController {
         
         view.addSubview(stackView)
     }
+    
+    private func setModel() {
+        guard let activeUser = DataBase.shared.activeUser else { return }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dateFormatter.string(from: activeUser.age)
+        
+        firstNameLabel.text = activeUser.firstName
+        secondNameLabel.text = activeUser.secondName
+        phooneLabel.text = activeUser.phone
+        emailLabel.text = activeUser.email
+        passwordLabel.text = activeUser.password
+        ageLabel.text = dateString
+    }
 }
 
 extension UserInfoViewController {

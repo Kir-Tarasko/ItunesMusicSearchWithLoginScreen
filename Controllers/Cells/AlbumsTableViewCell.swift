@@ -19,7 +19,7 @@ class AlbumsTableViewCell: UITableViewCell {
     
     private let albumNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Album name"
+        label.text = "Name album name"
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -27,7 +27,7 @@ class AlbumsTableViewCell: UITableViewCell {
     
     private let artistNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Artist name"
+        label.text = "Name artist name"
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,6 +51,9 @@ class AlbumsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {

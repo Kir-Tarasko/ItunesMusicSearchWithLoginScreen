@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SingUpViewController: UIViewController {
+class SignUpViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -70,7 +70,7 @@ class SingUpViewController: UIViewController {
     private let phoneNumberTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.placeholder = "Phone number"
+        textField.placeholder = "Phone"
         textField.keyboardType = .numberPad
         return textField
     }()
@@ -119,7 +119,7 @@ class SingUpViewController: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.tintColor = .white
         button.layer.cornerRadius = 10
-        button.addTarget(SingUpViewController.self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -128,6 +128,9 @@ class SingUpViewController: UIViewController {
     private let datePicker = UIDatePicker()
     
     let nameValidType: String.ValidTypes = .name
+    let emailValidType: String.ValidTypes = .email
+    let passwordValidType: String.ValidTypes = .password
+    let phoneValidType: String.ValidTypes = .phone
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,7 +181,33 @@ class SingUpViewController: UIViewController {
     }
     
     @objc private func signUpButtonTapped() {
-        print("SignUPTap")
+        
+        let firstNameText = firstNameTextField.text ?? ""
+        let secondNameText = secondNameTextField.text ?? ""
+        let phoneNumberText = phoneNumberTextField.text ?? ""
+        let emailText = emailTextField.text ?? ""
+        let passwordText = passwordTextField.text ?? ""
+        
+        if firstNameText.isValid(validType: nameValidType)
+            && secondNameText.isValid(validType: nameValidType)
+            && phoneNumberText.isValid(validType: phoneValidType)
+            && emailText.isValid(validType: emailValidType)
+            && passwordText.isValid(validType: passwordValidType)
+            && ageIsValid() == true {
+            
+            DataBase.shared.saveUser(firstName: firstNameText,
+                                     secondName: secondNameText,
+                                     phone: phoneNumberText,
+                                     email: emailText,
+                                     password: passwordText,
+                                     age: datePicker.date)
+            
+            loginLabel.text = "Registration complete"
+        
+        } else {
+            loginLabel.text = "Registration"
+            alertOk(title: "Error", message: "Fill in all the fields and your age must be at least 18 y.o.")
+        }
     }
     
     private func setTextField(textField: UITextField, label: UILabel, validType: String.ValidTypes, validMessage: String, wrongMessage: String, string: String, range: NSRange) {
@@ -204,9 +233,21 @@ class SingUpViewController: UIViewController {
             label.textColor = .red
         }
     }
+    
+    private func ageIsValid() -> Bool {
+        let calendar = NSCalendar.current
+        let dateNow = Date()
+        let birthday = datePicker.date
+        
+        let age = calendar.dateComponents([.year], from: birthday, to: dateNow)
+        let ageYear = age.year
+        guard let ageUser = ageYear else { return false }
+        return(ageUser < 18 ? false : true)
+    }
 }
 
-extension SingUpViewController: UITextFieldDelegate {
+
+extension SignUpViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -223,8 +264,32 @@ extension SingUpViewController: UITextFieldDelegate {
             setTextField(textField: secondNameTextField,
                          label: secondNameValidLabel,
                          validType: nameValidType,
-                         validMessage: "Name is valid",
+                         validMessage: "Secondname is valid",
                          wrongMessage: "Only A-Z or a-z characters, minimum 1 character",
+                         string: string,
+                         range: range)
+        case emailTextField:
+            setTextField(textField: emailTextField,
+                         label: emailValidLabel,
+                         validType: emailValidType,
+                         validMessage: "Email is valid",
+                         wrongMessage: "Email is not valid",
+                         string: string,
+                         range: range)
+        case passwordTextField:
+            setTextField(textField: passwordTextField,
+                         label: passwordValidLabel,
+                         validType: passwordValidType,
+                         validMessage: "Password is valid",
+                         wrongMessage: "Password is not valid",
+                         string: string,
+                         range: range)
+        case phoneNumberTextField:
+            setTextField(textField: phoneNumberTextField,
+                         label: phoneNumberValidLabel,
+                         validType: phoneValidType,
+                         validMessage: "Phone is valid",
+                         wrongMessage: "Wrong format",
                          string: string,
                          range: range)
         default:
@@ -241,12 +306,11 @@ extension SingUpViewController: UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
         return true
     }
-    
 }
 
 // MARK: Keyboard show hide
 
-extension SingUpViewController {
+extension SignUpViewController {
     
     private func registerKeyboardNotification() {
         NotificationCenter.default.addObserver(self,
@@ -274,10 +338,9 @@ extension SingUpViewController {
     @objc private func keyboardWillHide(notification: Notification) {
         scrollView.contentOffset = CGPoint.zero
     }
-    
 }
 
-extension SingUpViewController {
+extension SignUpViewController {
     
     private func setConstraints() {
         
@@ -306,7 +369,7 @@ extension SingUpViewController {
         
         NSLayoutConstraint.activate([
             loginLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            loginLabel.bottomAnchor.constraint(equalTo: backgroundView.topAnchor, constant: -30)
+            loginLabel.bottomAnchor.constraint(equalTo: elementsStackView.topAnchor, constant: -30)
         ])
         
         NSLayoutConstraint.activate([
@@ -315,7 +378,5 @@ extension SingUpViewController {
             signUpButton.heightAnchor.constraint(equalToConstant: 40),
             signUpButton.widthAnchor.constraint(equalToConstant: 300)
         ])
-        
     }
-    
 }
